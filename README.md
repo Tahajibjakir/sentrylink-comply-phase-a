@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Evidence Vault + Request Fulfillment UI (Phase A)
 
-## Getting Started
+This project is a lightweight demo UI that shows what the SentryLink Comply Phase A experience could look like from a factory user’s perspective. It’s not connected to a backend—everything runs on mock data—but it’s meant to feel like the real workflow.
 
-First, run the development server:
+## What it does
 
-```bash
+The app includes three main screens that cover how factories store evidence documents and respond to buyer requests.
+
+### Screen A — Evidence Vault (List View)
+
+A central place to browse and manage all evidence documents.
+
+You’ll be able to:
+
+view documents in a table with columns for
+Doc Name | Doc Type | Status | Expiry | Versions | Last Updated | Actions
+
+filter by
+type, status, expiry date, and search
+
+bulk select rows
+
+add documents to a “pack”
+
+filters persist in the URL so sharing links works as expected
+
+### Screen B — Evidence Detail & Versions
+
+Clicking into a document opens a detail page.
+
+Here you can see:
+
+document metadata (status chip, type, expiry)
+
+full version history of uploads
+
+an option to upload a new version
+(this is mocked — no actual files are stored)
+
+### Screen C — Buyer Request To-Do
+
+This screen shows buyer requests waiting to be fulfilled.
+
+From here a factory user can:
+
+review pending requests
+
+fulfill a request by attaching existing evidence
+
+or create new evidence if nothing matches yet
+
+Tech stack
+
+Next.js 14 (App Router)
+
+Tailwind CSS + shadcn/ui for styling
+
+React Context for state management
+
+Mock data only — no backend services
+
+How to run it
+
+Install dependencies
+
+npm install
+
+
+Start the development server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open your browser and go to
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Project layout
 
-## Learn More
+/app — all App Router routes
 
-To learn more about Next.js, take a look at the following resources:
+/components/ui — reusable interface components
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+/lib — mock data and simple state store
