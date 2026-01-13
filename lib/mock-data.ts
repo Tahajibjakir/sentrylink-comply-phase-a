@@ -1,4 +1,5 @@
 
+
 export type DocType = 'Cert' | 'Audit' | 'Lab Report' | 'Declaration';
 export type DocStatus = 'Valid' | 'Expiring Soon' | 'Expired';
 export type RequestStatus = 'Pending' | 'Fulfilled';
@@ -119,6 +120,7 @@ export const MOCK_DOCS: EvidenceDocument[] = [
         ]
     }
 ];
+
 
 export const MOCK_REQUESTS: BuyerRequest[] = [
     {

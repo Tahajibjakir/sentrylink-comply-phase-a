@@ -15,6 +15,7 @@ export default function Home() {
       <NavBar />
 
       <main className="flex-1 container mx-auto max-w-5xl py-12 px-6">
+        {/* Hero Section */}
         <div className="flex flex-col items-center text-center space-y-4 mb-16">
           <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
             Compliance Simplified

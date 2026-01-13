@@ -1,0 +1,34 @@
+[
+  {
+    "id": "r1",
+    "buyerName": "Acme Corp",
+    "requestedDocType": "Cert",
+    "dueDate": "2024-02-01",
+    "status": "Pending",
+    "fulfilledWithDocId": null
+  },
+  {
+    "id": "r2",
+    "buyerName": "Global Brands",
+    "requestedDocType": "Lab Report",
+    "dueDate": "2024-01-25",
+    "status": "Fulfilled",
+    "fulfilledWithDocId": "d3"
+  },
+  {
+    "id": "r3",
+    "buyerName": "Fashion Forward",
+    "requestedDocType": "Audit",
+    "dueDate": "2024-03-15",
+    "status": "Pending",
+    "fulfilledWithDocId": null
+  },
+  {
+    "id": "req_1768298389646",
+    "buyerName": "Tahajib Jakir Khan",
+    "requestedDocType": "Audit",
+    "dueDate": "2026-1-12",
+    "status": "Fulfilled",
+    "fulfilledWithDocId": "d2"
+  }
+]

@@ -49,6 +49,7 @@ function VaultContent() {
         router.replace(`${pathname}?${params.toString()}`);
     };
 
+    // Bulk selection handlers
     const handleSelectAll = (checked: boolean) => {
         if (checked) {
             setSelectedIds(filteredDocs.map(d => d.id));
@@ -65,6 +66,7 @@ function VaultContent() {
         }
     };
 
+    // Check if all visible docs are selected
     const allSelected = filteredDocs.length > 0 && selectedIds.length === filteredDocs.length;
 
     return (
@@ -170,9 +172,19 @@ function VaultContent() {
                                         <TableCell>
                                             <StatusChip status={doc.status} />
                                         </TableCell>
-                                        <TableCell>{format(new Date(doc.expiryDate), 'MMM d, yyyy')}</TableCell>
+                                        <TableCell>
+                                            {(() => {
+                                                const date = new Date(doc.expiryDate);
+                                                return !isNaN(date.getTime()) ? format(date, 'MMM d, yyyy') : 'N/A';
+                                            })()}
+                                        </TableCell>
                                         <TableCell>{doc.versions.length}</TableCell>
-                                        <TableCell>{format(new Date(doc.lastUpdated), 'MMM d, yyyy')}</TableCell>
+                                        <TableCell>
+                                            {(() => {
+                                                const date = new Date(doc.lastUpdated);
+                                                return !isNaN(date.getTime()) ? format(date, 'MMM d, yyyy') : 'N/A';
+                                            })()}
+                                        </TableCell>
                                         <TableCell className="text-right">
                                             <Button variant="ghost" size="sm" asChild>
                                                 <Link href={`/vault/${doc.id}`}>View</Link>

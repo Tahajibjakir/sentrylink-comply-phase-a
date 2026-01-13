@@ -19,16 +19,17 @@ export default function RequestsPage() {
     const [selectedRequestId, setSelectedRequestId] = useState<string | null>(null);
     const [isFulfillOpen, setIsFulfillOpen] = useState(false);
 
-    // Fulfill Modal State
+
     const [selectedDocId, setSelectedDocId] = useState<string | null>(null);
 
-    // Upload New State
+    // Upload New State for fulfilling with a fresh document
     const [newDocName, setNewDocName] = useState('');
     const [newDocFile, setNewDocFile] = useState<File | null>(null);
 
     const activeRequest = requests.find(r => r.id === selectedRequestId);
 
-    // Filter docs that match the requested type
+
+    // Filter docs that match the requested type so we don't show irrelevant files
     const eligibleDocs = documents.filter(d =>
         activeRequest && d.type === activeRequest.requestedDocType && d.status !== 'Expired'
     );
@@ -41,14 +42,14 @@ export default function RequestsPage() {
         setIsFulfillOpen(true);
     };
 
-    const handleFulfillExisting = () => {
+    const handleFulfillExisting = async () => {
         if (selectedRequestId && selectedDocId) {
-            fulfillRequest(selectedRequestId, selectedDocId);
+            await fulfillRequest(selectedRequestId, selectedDocId);
             setIsFulfillOpen(false);
         }
     };
 
-    const handleFulfillNew = (e: React.FormEvent) => {
+    const handleFulfillNew = async (e: React.FormEvent) => {
         e.preventDefault();
         if (selectedRequestId && newDocName && newDocFile && activeRequest) {
             const newDoc: EvidenceDocument = {
@@ -69,8 +70,10 @@ export default function RequestsPage() {
                 }]
             };
 
-            createDocument(newDoc);
-            fulfillRequest(selectedRequestId, newDoc.id);
+            
+            const created = await createDocument(newDoc);
+            
+            await fulfillRequest(selectedRequestId, created.id);
             setIsFulfillOpen(false);
         }
     };

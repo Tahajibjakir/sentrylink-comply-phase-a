@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 export function NavBar() {
     const pathname = usePathname();
 
+    // Helper to determine if a link is active
     const isActive = (path: string) => {
         return pathname.startsWith(path);
     };
