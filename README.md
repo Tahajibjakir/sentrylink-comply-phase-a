@@ -37,9 +37,9 @@ type, status, expiry date, and search
 
 bulk select rows
 
-add documents to a “pack”
+Add documents to a “pack.”
 
-filters persist in the URL so sharing links works as expected
+Filters persist in the URL, so sharing links works as expected
 
 ### Screen B — Evidence Detail & Versions
 
@@ -58,7 +58,7 @@ an option to upload a new version
 
 This screen shows buyer requests waiting to be fulfilled.
 
-From here a factory user can:
+From here, a factory user can:
 
 review pending requests
 
@@ -66,7 +66,7 @@ fulfill a request by attaching existing evidence
 
 or create new evidence if nothing matches yet
 
-Tech stack
+## Tech stack
 
 Next.js 14 (App Router)
 
@@ -76,12 +76,11 @@ React Context for state management
 
 Mock data only — no backend services
 
-How to run it
+## How to run it
 
 Install dependencies
 
 npm install
-
 
 Start the development server
 
