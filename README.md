@@ -1,6 +1,10 @@
 
+# Newly added features
 
-This project is a lightweight demo UI that shows what the SentryLink Comply Phase A experience could look like from a factory user’s perspective. It’s not connected to a backend; everything runs on mock data, but it’s meant to feel like the real workflow.
+This branch extends the initial Phase-A UI by implementing a complete end-to-end “request fulfillment” thin slice. In addition to the existing Evidence Vault and request visibility, the project now includes working API routes for creating and retrieving buyer requests, in-memory/persistent storage to track request state, and a fulfillment workflow that allows a Factory user to upload evidence and mark a request as fulfilled. The UI is fully wired to backend logic, enabling real status transitions from Pending to Fulfilled, and ensuring that buyers can verify fulfillment via the API. This version demonstrates how frontend, backend, and data flow integrate together to support a realistic compliance request lifecycle.
+
+# Screenshot
+
 
 ## What it does
 
